@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+</head>
+<body>
+    <form action="">
+        <h2>Form Pendaftaran</h2>
+        <label for="name">Nama Lengkap:
+            <input type="text" id="name" name="customername" minlength="3" required>
+        </label>
+        <br><br>
+    
+        <label for="mail">Email:
+            <input type="email" id="mail" name="email" required>
+        </label>
+        <br><br>
+    
+        <label for="pwd">Password:
+            <input type="password" id="pwd" minlength="8" required>
+        </label>
+        <br><br>
+    
+        <label for="tl">Tanggal Lahir:
+            <input type="date" id="tl" max="2006-10-10" required>
+        </label>
+        <br><br>
+    
+        <label for="jk">Jenis Kelamin:</label>
+            <label><input type="radio" id="jk" name="jk">Laki-Laki</label>
+            <label><input type="radio" id="jk" name="jk">Perempuan</label>
+        
+        <br><br>
+    
+        <label for="telp">Nomor Telepon:</label>
+            <input type="tel" id="telp" name="telp" minlength="10" maxlength="13">
+        <br><br>
+    
+        <label><input type="checkbox" name="" required>Persetujuan Syarat dan Ketentuan</label>
+        <br><br>
+
+    <button type="submit">Submit</button>
+
+    </form>
+    
+</body>
+</html>
