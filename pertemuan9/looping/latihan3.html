@@ -12,5 +12,13 @@
     document.write(`<br />` + buah2an[1]); //cetak buah pengganti
     document.write("<br/>" + buah2an[2]); //cetak buah pisang
     document.write('<br />' + buah2an[3]); //cetak buah pengganti
-    
+    //tambah buah2an baru
+    buah2an.push('Nangka', 'Semangka', 'Melon');
+    document.write(`<br />` + buah2an[4]); //cetak buah baru
+    document.write(`<br />` + buah2an[5]); //cetak buah baru
+    document.write(`<br />` + buah2an[6]); //cetak buah baru
+    //cetak seluruh key element array
+    for (let buah in buah2an) {
+    document.write(`<br/>Buah + {buah}`);
+    }
     </script>
