@@ -19,6 +19,14 @@
     document.write(`<br />` + buah2an[6]); //cetak buah baru
     //cetak seluruh key element array
     for (let buah in buah2an) {
-    document.write(`<br/>Buah + {buah}`);
+    document.write(`<br/>Buah ${buah2an[buah]}`);
+    }
+    //cetak seluruh value element array
+    for (let buah in buah2an) {
+    document.write(`<br />Buah ${buah2an[buah]}`);
+    }
+    //cetak seluruh key dan value element array
+    for (let buah in buah2an) {
+        document.write(`<br />Buah dengan index - ${buah} adalah buah ${buah2an[buah]}`);
     }
     </script>
