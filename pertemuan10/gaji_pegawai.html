@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Form Gaji Pegawai</h1>
-    <form id="formGaji" method="POST"><hr>
+    <form id="formGaji"><hr>
         <label for="golongan">Pilih Golongan:</label>
         <select name="golongan" id="golongan">
             <option value="1">Golongan 1</option>
@@ -23,5 +23,44 @@
 
         <button>Submit</button>
     </form>
+
+    <h2 id="hasil"></h2>
+
+    <script>
+        function hitungGaji() {
+            const golongan = document.getElementById('golongan').value;
+            const pernikahan = document.getElementById('pernikahan').value;
+
+            let gaji = 0;
+            let tunjangan = 0;
+
+            switch (golongan){
+                case "1":
+                    gaji = 10000000;
+                    break;
+                case "2":
+                    gaji = 15000000;
+                    if (pernikahan === "Sudah Menikah") {
+                        tunjangan = 2000000;
+                    };
+                    break
+                case "3":
+                    gaji = 20000000;
+                    break;
+                
+                document.getElementById('hasil').innerText = "Golongan Tidak Valid";
+                return;
+            }
+            const gajiBersih = gaji + tunjangan;
+            document.getElementById('hasil').innerText = `Gaji Bersih = Rp${gajiBersih.toLocaleString()}`;
+
+        }
+
+        document.getElementById('formGaji').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        hitungGaji(); 
+        });
+
+    </script>
 </body>
 </html>
