@@ -15,6 +15,7 @@
     <form id="formGaji"><hr>
         <label class="mb-2" for="golongan">Pilih Golongan:</label><br>
         <select class="form-select mb-4" name="golongan" id="golongan">
+            <option selected>Pilih Golongan</option>
             <option value="1">Golongan 1</option>
             <option value="2">Golongan 2</option>
             <option value="3">Golongan 3</option>
@@ -22,6 +23,7 @@
 
         <label class="mb-2" for="pernikahan">Status Pernikahan:</label><br>
         <select class="form-select mb-4" name="pernikahan" id="pernikahan">
+            <option selected>Pilih Status Pernikahan</option>
             <option value="Belum Menikah">Belum Menikah</option>
             <option value="Sudah Menikah">Sudah Menikah</option>
         </select>
@@ -52,12 +54,17 @@
                 case "3":
                     gaji = 20000000;
                     break;
-                
-                document.getElementById('hasil').innerText = "Golongan Tidak Valid";
-                return;
+            
             }
+            
             const gajiBersih = gaji + tunjangan;
             document.getElementById('hasil').innerText = `Gaji Bersih = Rp${gajiBersih.toLocaleString()}`;
+
+            if (golongan === "Pilih Golongan" || pernikahan === "Pilih Status Pernikahan") {
+                alert("Pilih salah satu opsi");
+                document.getElementById('hasil').innerText = ``;
+                return;
+            }
 
         }
 
