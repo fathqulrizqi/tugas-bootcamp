@@ -27,19 +27,21 @@
             <option value="Belum Menikah">Belum Menikah</option>
             <option value="Sudah Menikah">Sudah Menikah</option>
         </select>
+        
+        <div id="error" class="alert alert-danger" role="alert" hidden>Harap mengisi opsi yang tersedia!
+        </div>
 
         <button type="button" class="btn btn-outline-primary" id="hitungGaji">Submit</button>
     </form> <br><br>
 
-    <div class="jumbotron jumbotron-fluid bg-info p-3">
+    <div id="result" class="jumbotron jumbotron-fluid bg-info p-3" hidden>
         <div class="container">
           <p class="lead text-start p-3 mb-2 text-white">Result:</p>  
           <h4 id="hasil" class="font-weight-bold"></h4>
         </div>
       </div>
 
-      <div id="error" class="alert alert-danger" role="alert" hidden>Harap mengisi opsi yang tersedia!
-      </div>
+      
 
     <script>
         function hitungGaji() {
@@ -51,6 +53,7 @@
 
             document.getElementById('hasil').innerText = ``;
             document.getElementById('error').hidden = true;
+            document.getElementById('result').hidden = true;
 
 
             switch (golongan){
@@ -66,18 +69,14 @@
                 case "3":
                     gaji = 20000000;
                     break;
-            
+                default:
+                document.getElementById('error').hidden = false; 
+                return;
             }
             
             const gajiBersih = gaji + tunjangan;
             document.getElementById('hasil').innerText = `Gaji Bersih = Rp${gajiBersih.toLocaleString()}`;
-
-            if (golongan === "Pilih Golongan" || pernikahan === "Pilih Status Pernikahan") {
-                document.getElementById('hasil').innerText = `Tidak ditemukan hasil!`;
-                document.getElementById('error').hidden = false;
-                return;
-            }
-
+            document.getElementById('result').hidden = false
         }
 
         document.getElementById('hitungGaji').addEventListener('click', function(t) {
