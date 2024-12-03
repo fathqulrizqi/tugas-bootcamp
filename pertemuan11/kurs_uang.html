@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs Uang</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: 100vh;
+            margin: 0;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 5px;
+        }
+
+        div > label {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        fieldset {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+            text-align: left;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            text-align: center;
+        }
+
+        input, select {
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>(Converter) Mata Uang Asing</h1>
+            
+            <form action="">
+                <fieldset>
+                    <legend>Kalkulator Kurs | Konversi Mata Uang</legend>
+                        <div>
+                            <label for="awal">Nilai Awal</label>
+                            <input id="awal" type="number" placeholder="0" onchange="converter()">
+                        </div>
+                        <div>
+                            <label for="dari">Dari</label>
+                            <select name="dari" id="dari" onchange="converter()">
+                                <option selected disabled>-- Pilih Kurs Mata Uang Asing --</option>
+                                <option value="USD">USD</option>
+                                <option value="SGD">SGD</option>
+                                <option value="Ringgit">Ringgit</option>
+                                <option value="Yen">Yen</option>
+                                <option value="Euro">Euro</option>
+                                <option value="Riyal">Riyal</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="rupiah">Nilai Rupiah</label>
+                            <input id="rupiah" type="number" placeholder="0" onchange="converter()">
+                        </div>
+                </fieldset>
+            </form>
+
+    <script>
+        function converter(){
+            const nilaiAwal = document.getElementById('awal').value;
+            const nilaiDari = document.getElementById('dari').value;
+
+            let hasil;
+
+            if (nilaiDari == 'USD') {
+                hasil = nilaiAwal * 15925;
+            }
+            else if (nilaiDari == 'SGD') {
+                hasil = nilaiAwal * 11840;
+            }
+            else if (nilaiDari == 'Ringgit') {
+                hasil = nilaiAwal * 2565;
+            }
+            else if (nilaiDari == 'Yen') {
+                hasil = nilaiAwal * 106;
+            }
+            else if (nilaiDari == 'Euro') {
+                hasil = nilaiAwal * 16704;
+            }
+            else {
+                hasil = 'Kurs Tidak Valid';
+            }
+
+            document.getElementById('rupiah').value = hasil
+        }
+    </script>
+        
+    </body>
+</body>
+</html>
