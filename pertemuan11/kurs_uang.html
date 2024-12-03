@@ -78,29 +78,80 @@
         function converter(){
             const nilaiAwal = document.getElementById('awal').value;
             const nilaiDari = document.getElementById('dari').value;
+            const nilaiRupiah = document.getElementById('rupiah').value;
 
-            let hasil;
 
-            if (nilaiDari == 'USD') {
-                hasil = nilaiAwal * 15925;
+            if (nilaiAwal > 0){
+                switch (nilaiDari) {
+                    case "USD":
+                    hasil = nilaiAwal * 15925;
+                    break;
+
+                    case "SGD":
+                    hasil = nilaiAwal * 11840;
+                    break;
+                    
+                    case "Ringgit":
+                    hasil = nilaiAwal * 2565;
+                    break;
+
+                    case "Yen":
+                    hasil = nilaiAwal * 106;
+                    break;
+
+                    case "Euro":
+                    hasil = nilaiAwal * 16704;
+                    break;
+
+                    case "Riyal":
+                    hasil = nilaiAwal * 4240;
+                    break;
+
+                    default:
+                        hasil = 0;
+                        break;
+                }
+                    document.getElementById('rupiah').value = hasil.toFixed(2);
             }
-            else if (nilaiDari == 'SGD') {
-                hasil = nilaiAwal * 11840;
+
+            else if (nilaiRupiah > 0){
+                switch (nilaiDari) {
+                        case "USD":
+                        hasilBalik = nilaiRupiah / 15925;
+                        break;
+
+                        case "SGD":
+                        hasilBalik = nilaiRupiah / 11840;
+                        break;
+
+                        case "Ringgit":
+                        hasilBalik = nilaiRupiah / 2565;
+                        break;
+
+                        case "Yen":
+                        hasilBalik = nilaiRupiah / 106;
+                        break;
+
+                        case "Euro":
+                        hasilBalik = nilaiRupiah / 16704;
+                        break;
+
+                        case "Riyal":
+                        hasilBalik = nilaiRupiah / 4240;
+                        break;
+
+                        default:
+                            hasilBalik = 0;
+                            break;
+                
+                    }
+                    document.getElementById('awal').value = hasilBalik.toFixed(2);
             }
-            else if (nilaiDari == 'Ringgit') {
-                hasil = nilaiAwal * 2565;
-            }
-            else if (nilaiDari == 'Yen') {
-                hasil = nilaiAwal * 106;
-            }
-            else if (nilaiDari == 'Euro') {
-                hasil = nilaiAwal * 16704;
-            }
+                       
             else {
-                hasil = 'Kurs Tidak Valid';
+                hasil = '0'
             }
-
-            document.getElementById('rupiah').value = hasil
+                    
         }
     </script>
         
