@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingkaran</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input, textarea {
+        width: 200px;
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px;
+    }
+
+    div {
+        background-color: beige;
+        width: 500px;
+        padding: 20px;
+
+    }
+
+    input::placeholder {
+        text-align: right;
+    }
+</style>
+<body>
+    <div>
+        <h2>Rumus</h2>
+        <p><b>Luas = phi * r^2</b></p>
+        <p><b>Keliling = 2 * phi * r</b></p>
+    </div>
+
+    <hr>
+
+    <h2>Operator Penghitung Luas dan Keliling Lingkaran</h2>
+    <form action="">
+        <label for="jari2">Jari-Jari</label>
+        <input id="jari2" type="number" placeholder="(cm)"> 
+
+        <button type="button" onclick="hitungLingkaran()">Hitung</button> <br><br>
+
+        <label for="hasil">Hasil</label>
+        <textarea name="hasil" id="hasil" rows="5" readonly>
+        </textarea>
+    </form>
+
+    <script>
+        function hitungLingkaran() {
+            const r = document.getElementById('jari2').value;
+
+            const luas = Math.PI * Math.pow(r, 2);
+            const keliling = 2 * (22/7) * r;
+
+            document.getElementById('hasil').value = `Luas = ${luas.toFixed(2)} cm² Keliling = ${keliling.toFixed(2)} cm`
+        }
+    </script>
+</body>
+</html>
