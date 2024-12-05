@@ -1,15 +1,18 @@
 function hitung(){
-    // select jari jari 
-    const jariJari = document.getElementById('jariJari').value;
+    // select input
+    const width = document.getElementById('width').value;
+    const length = document.getElementById('length').value;
+    const height = document.getElementById('height').value;
 
     // buat object lingkaran 
-    const lingkaran1 = new Lingkaran(jariJari);
+    const balok = new Balok(width, length, height);
 
     // hitung luas dan keliling
-    const luas = lingkaran1.hitungLuas();
-    const keliling = lingkaran1.hitungKeliling();
+    const keliling = balok.hitungKeliling();
+    const luas = balok.hitungLuas();
+    const volume = balok.hitungVolume();
 
     // tampilkan ke <p>
-    document.getElementById('hasil').textContent = `Luas: ${luas} cm, Keliling: ${keliling} cm`
+    document.getElementById('hasil').textContent = `Keliling: ${keliling} cm, Luas: ${luas} cm², Volume ${volume} cm³`
 }
 

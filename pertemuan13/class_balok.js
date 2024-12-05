@@ -1,4 +1,4 @@
-class Lingkaran {
+class Balok {
     constructor(panjang, lebar, tinggi) {
         this.panjang = panjang;
         this.lebar = lebar;
