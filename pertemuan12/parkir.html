@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Parkir</title>
+    
+</head>
+<body class="px-4 py-5 my-5 text-center">
+    <h2 class="mb-5">Hitung Biaya Parkir</h2>
+    <form>
+        <label for="in" class="mb-3">Masuk Parkir:</label>
+        <input id="in" type="number" min="0" max="24"> <br>
+
+        <label for="out">Keluar Parkir:</label>
+        <input id="out" type="number" min="0" max="24"> <br>
+
+        <button class="mt-3" type="button" onclick="hitungParkir()">Biaya Parkir</button> 
+        <h5 class="mt-5" id="hasil"></h5>
+    </form>
+
+    <script>
+        function hitungParkir() {
+            // Ambil nilai dari input dan konversi ke integer
+            const masukParkir = parseInt(document.getElementById('in').value);
+            const keluarParkir = parseInt(document.getElementById('out').value);
+
+            // Validasi input
+            if (isNaN(masukParkir) || isNaN(keluarParkir)) {
+                alert('Masukkan nilai yang sesuai!');
+                return;
+            }
+
+            if (masukParkir < 0 || keluarParkir < 0 || masukParkir > 24 || keluarParkir > 24) {
+                alert('Masukkan nilai dalam rentang 0–24!');
+                return;
+            }
+
+            if (keluarParkir < masukParkir) {
+                alert('Jam keluar tidak boleh lebih kecil dari jam masuk!');
+                return;
+            }
+
+            // Hitung durasi parkir
+            const durasi = keluarParkir - masukParkir;
+
+            // Hitung biaya parkir
+            let biaya = 0;
+            if (durasi <= 2) {
+                biaya = 3000; 
+            } else {
+                biaya = 3000 + (durasi - 2) * 1000; 
+            }
+
+            // Tampilkan hasil
+            document.getElementById('hasil').textContent = `Biaya Parkir: Rp ${biaya}`;
+        }
+    </script>
+</body>
+</html>
