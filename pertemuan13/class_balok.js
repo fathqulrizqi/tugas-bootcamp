@@ -7,8 +7,9 @@ class Balok {
 
     // method / rumus 
     hitungLuas() {
-        return 2 * (this.panjang * this.lebar) + (this.panjang * this.tinggi) + (this.lebar * this.tinggi);
+        return 2 * ((this.panjang * this.lebar) + (this.panjang * this.tinggi) + (this.lebar * this.tinggi));
     }
+    
     hitungKeliling() {
         return 4 * (this.panjang + this.lebar + this.tinggi);
     }
