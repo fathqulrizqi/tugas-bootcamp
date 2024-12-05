@@ -13,6 +13,6 @@ function hitung(){
     const volume = balok.hitungVolume();
 
     // tampilkan ke <p>
-    document.getElementById('hasil').textContent = `Keliling: ${keliling} cm, Luas: ${luas} cm², Volume ${volume} cm³`;
+    document.getElementById('hasil').textContent = `Keliling: ${keliling} cm, Luas: ${luas} cm², Volume: ${volume} cm³`;
 }
 
