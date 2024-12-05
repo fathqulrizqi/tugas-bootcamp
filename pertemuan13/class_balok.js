@@ -7,13 +7,13 @@ class Lingkaran {
 
     // method / rumus 
     hitungLuas() {
-        return Lingkaran.phi * this.jarijari * this.jarijari;
+        return 2 * (this.panjang * this.lebar) + (this.panjang * this.tinggi) + (this.lebar * this.tinggi);
     }
     hitungKeliling() {
-        return 2 * Lingkaran.phi * this.jarijari;
+        return 4 * (this.panjang + this.lebar + this.tinggi);
     }
     hitungVolume() {
-        return 2 * Lingkaran.phi * this.jarijari;
+        return this.panjang * this.lebar * this.tinggi;
     }
 }
 
