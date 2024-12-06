@@ -27,3 +27,5 @@ class Mahasiswa {
         }
     }
 }
+
+export default Mahasiswa

@@ -39,3 +39,5 @@ class Nilai {
         }
     }
 }
+
+export default Nilai;
