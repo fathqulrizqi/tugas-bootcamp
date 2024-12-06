@@ -5,21 +5,19 @@ class Nilai {
     }
 
     grade(){
-        const grade = this.nilai
-
-        if (grade >= 0 && grade <= 35){
+        if (this.nilai >= 0 && this.nilai <= 35){
             return `E`;
         }
-        else if (grade >= 36 && grade <= 55){
+        else if (this.nilai >= 36 && this.nilai <= 55){
             return `D`;
         }
-        else if (grade >=56 && grade <= 69){
+        else if (this.nilai >=56 && this.nilai <= 69){
             return `C`;
         }
-        else if (grade >= 70 && grade <= 84){
+        else if (this.nilai >= 70 && this.nilai <= 84){
             return `B`;
         }
-        else if (grade >= 85 && grade <= 100){
+        else if (this.nilai >= 85 && this.nilai <= 100){
             return `A`;
         }
         else {
@@ -28,10 +26,10 @@ class Nilai {
     }
 
     getHasil(){
-        if (grade <= 60){
+        if (this.nilai <= 60){
             return `Tidak Lulus!`;
         }
-        else if (grade > 60){
+        else if (this.nilai > 60){
             return `Lulus!`;
         }
         else {

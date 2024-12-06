@@ -9,18 +9,16 @@ class Mahasiswa {
 
     
     predikat(){
-        const ipeka = this.ipk
-
-        if (ipeka > 0 && ipeka < 2.00){
+        if (this.ipk > 0 && this.ipk < 2.00){
             return `Cukup`;
         }
-        else if (ipeka >= 2.00 && ipeka < 3.00) {
+        else if (this.ipk >= 2.00 && this.ipk < 3.00) {
             return `Baik`;
         }
-        else if (ipeka >= 3.00 && ipeka < 3.75) {
+        else if (this.ipk >= 3.00 && this.ipk < 3.75) {
             return `Memuaskan`;
         }
-        else if (ipeka >= 3.75 && ipeka <=4) {
+        else if (this.ipk >= 3.75 && this.ipk <=4) {
             return `CumLaude`;
         }
         else {
