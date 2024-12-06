@@ -5,7 +5,7 @@ class nilaiMahasiswa {
     constructor (id, ...rest) {
         this.id = id;
         this.mahasiswa = new Mahasiswa (...rest);
-        this.nilai = new Nilai (rest[6], rest[7]);
+        this.nilai = new Nilai (rest[4], rest[5]);
     }
 }
 
