@@ -12,19 +12,19 @@ class Mahasiswa {
         const ipeka = this.ipk
 
         if (ipeka > 0 && ipeka < 2.00){
-            return 'Cukup';
+            return `Cukup`;
         }
         else if (ipeka >= 2.00 && ipeka < 3.00) {
-            return 'Baik';
+            return `Baik`;
         }
         else if (ipeka >= 3.00 && ipeka < 3.75) {
-            return 'Memuaskan';
+            return `Memuaskan`;
         }
         else if (ipeka >= 3.75 && ipeka <=4) {
-            return 'CumLaude';
+            return `CumLaude`;
         }
         else {
-            return 'Tidak Valid!';
+            return `Tidak Valid!`;
         }
     }
 }
