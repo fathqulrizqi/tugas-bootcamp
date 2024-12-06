@@ -1,5 +1,6 @@
 class Mahasiswa {
-    constructor(nim, nama, jenis_kelamin, ipk){
+    constructor(id, nim, nama, jenis_kelamin, ipk){
+        this.id = id;
         this.nim = nim;
         this.nama = nama;
         this.jenis_kelamin = jenis_kelamin;
