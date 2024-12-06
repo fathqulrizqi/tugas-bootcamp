@@ -1,14 +1,14 @@
 class Balok {
     constructor(panjang, lebar, tinggi) {
-        this.panjang = panjang;
-        this.lebar = lebar;
-        this.tinggi = tinggi;
+        this.panjang = Number(panjang);
+        this.lebar = Number(lebar);
+        this.tinggi = Number(tinggi);
     }
 
     // method / rumus 
     
     hitungKeliling() {
-        return 4 * ((this.panjang * 1) + (this.lebar * 1) + (this.tinggi * 1));
+        return 4 * (this.panjang + this.lebar + this.tinggi);
     }
     hitungLuas() {
         return 2 * ((this.panjang * this.lebar) + (this.panjang * this.tinggi) + (this.lebar * this.tinggi));
