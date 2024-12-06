@@ -1,3 +1,6 @@
+import Mahasiswa from "./mahasiswa";
+import Nilai from "./nilai";
+
 class NilaiMahasiswa {
     // constructor (nim, nama, jenis_kelamin, ipk, mata_kuliah, nilai) 
     constructor (...rest) {
@@ -6,4 +9,4 @@ class NilaiMahasiswa {
     }
 }
 
-export default NilaiMahasiswa
+export default NilaiMahasiswa;
