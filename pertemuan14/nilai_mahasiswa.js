@@ -1,16 +1,12 @@
-import Mahasiswa from "./mahasiswa";
-import Nilai from "./nilai";
+import Mahasiswa from './mahasiswa.js';
+import Nilai from './nilai.js';
 
-class NilaiMahasiswa {
-    constructor (id, nim, nama, jenis_kelamin, ipk, mata_kuliah, nilai) {
+class nilaiMahasiswa {
+    constructor (id, ...rest) {
         this.id = id;
-        this.nim = nim;
-        this.nama = nama;
-        this.jenis_kelamin = jenis_kelamin;
-        this.ipk = ipk;
-        this.mata_kuliah = mata_kuliah;
-        this.nilai = nilai;
+        this.mahasiswa = new Mahasiswa (...rest);
+        this.nilai = new Nilai (rest[6], rest[7]);
     }
 }
 
-export default NilaiMahasiswa;
+export default nilaiMahasiswa;
