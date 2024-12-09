@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Event</title>
+</head>
+<body id="body-bg">
+    <h1>Event Handling</h1>
+    <button class="btn btn-primary">Hello</button>
+
+    <br>
+    <span id="hello"></span> <br>
+
+    <input class="ubahWarnaBtn" type="button" value="Ubah Warna">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+        $("document").ready(function(){
+            $("button").click(function(){
+                $("#hello").html('Halo Faycul').css('background', 'pink');
+            });
+
+            $(".ubahWarnaBtn").click(function(){
+                let random = Math.round(Math.random()*10);
+                let colors = ['pink', 'cadetblue', 'beige', 'grey', 'darkgreen', 'brown', 'lightgreen', 'cyan', 'red', 'violet', 'lemon', 'black', 'maroon', 'gold'];
+
+                $("#body-bg").css('background', colors[random]);
+            });
+        })
+    </script>
+</body>
+</html>
