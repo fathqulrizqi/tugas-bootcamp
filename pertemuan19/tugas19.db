@@ -1,0 +1,151 @@
+create table pelanggan(
+    id int auto_increment primary key,                                         
+    kode varchar(10) unique,
+    nama varchar(45) not null,
+    jk char(1) not null,
+    tmp_lahir varchar(30),
+    tgl_lahir date,
+    email varchar(45),
+    kartu_id int,
+    foreign key (kartu_id) references kartu(id));
+
+create table pesanan(
+    id int auto_increment primary key,
+    tanggal date,
+    total double default 0,
+    pelanggan_id int,
+    foreign key (pelanggan_id) references pelanggan(id)
+);
+
+create table pembayaran(
+    id int auto_increment primary key,
+    nokuitansi varchar(10),
+    tanggal date,
+    jumlah double default 0,
+    ke int,
+    pesanan_id int,
+    foreign key (pesanan_id) references pesanan(id)
+);
+
+create table jenis_produk(
+    id int auto_increment primary key,
+    nama varchar(45) not null
+);
+
+create table produk(
+    id int auto_increment primary key,
+    kode varchar(10) unique,
+    nama varchar(45) not null,
+    harga_beli double default 0,
+    harga_jual double default 0,
+    stok int,
+    min_stok int,
+    jenis_produk_id int,
+    foreign key (jenis_produk_id) references jenis_produk(id)
+);
+
+create table vendor(
+    id int auto_increment primary key,
+    nomor varchar(4) unique,
+    nama varchar(40) not null,
+    kota varchar(30),
+    kontak varchar(30) not null
+);
+
+create table pembelian(
+    id int auto_increment primary key,
+    tanggal varchar(45) not null,
+    nomor varchar(10) unique,
+    jumlah int,
+    harga double default 0,
+    produk_id int,
+    vendor_id int,
+    foreign key (produk_id) references produk(id),
+    foreign key (vendor_id) references vendor(id)
+
+);
+
+create table pesanan_items(
+    id int auto_increment primary key,
+    qty int,
+    harga double default 0,
+    produk_id int,
+    pesanan_id int,
+    foreign key (produk_id) references produk(id),
+    foreign key (pesanan_id) references pesanan(id)
+);
+
+INSERT INTO jenis_produk VALUES
+(DEFAULT, 'Skin Care'),
+(DEFAULT, 'Hair Care'),
+(DEFAULT, 'Body Care');
+(DEFAULT, 'Fragrance');
+(DEFAULT, 'Make Up');
+
+
+INSERT INTO produk VALUES
+(DEFAULT, 'SC00001', 'Face Cleanser', '189000', '364000', '600', '10', 1),
+(DEFAULT, 'SC00002', 'Face Toner', '223000', '442000', '750', '10', 1),
+(DEFAULT, 'SC00003', 'Face Serum', '244000', '661000','400', '10', 1),
+(DEFAULT, 'HC00001', 'Hair Shampoo', '63122', '85300', '900', '10', 2),
+(DEFAULT, 'HC00002', 'Hair Mask', '100408', '130400', '890', '10', 2),
+(DEFAULT, 'HC00003', 'Hair Tonic','59085', '90900', '560', '10', 2), 
+(DEFAULT, 'BC00001', 'Body Wash', '144000', '170000','405', '10', 3),
+(DEFAULT, 'BC00002', 'Body Scrub', '106000', '125000', '450', '10', 3),
+(DEFAULT, 'BC00003', 'Body Lotion', '110000', '135000', '560', '10', 3),
+(DEFAULT, 'FG00001', 'Floral Perfume', '124000', '159000', '332', '10', 4),
+(DEFAULT, 'FG00002', 'Fruity Perfume', '110000', '145000', '443', '10', 4),
+(DEFAULT, 'FG00003', 'Candy Perfume', '130000', '155000', '554', '10', 4),
+(DEFAULT, 'MU00001', 'Cushion', '267000', '387000', '770', '10', 5),
+(DEFAULT, 'MU00002', 'Liquid Blush On', '90000', '129000', '429', '10', 5),
+(DEFAULT, 'MU00003', 'Mascara', '79000', '67000', '1029', '10', 5);
+
+INSERT INTO kartu VALUES
+(DEFAULT, 'C001', 'Basic Card', '2', '10000'),
+(DEFAULT, 'C002', 'Silver Card', '5', '30000'),
+(DEFAULT, 'C003', 'Gold Card', '10', '50000'),
+(DEFAULT, 'C004', 'Platinum Card', '15', '70000'),
+(DEFAULT, 'C005', 'VIP Card', '20', '100000');
+
+INSERT INTO pelanggan VALUES
+(DEFAULT, 'CUST001', 'Ethan James Anderson', '', '', NULL, '', '1'),
+(DEFAULT, 'CUST002', 'Mason Alexander Lee', '', 'New York', '1997-12-08', 'masonlee@gmail.com', '2'),
+(DEFAULT, 'CUST003', 'Emma Grace Miller', 'P', 'Bangkok', NULL, 'emma@gmail.com', '3'),
+(DEFAULT, 'CUST004', 'Sophia Elizabeth Smith', 'P', 'London', '1989-01-01', 'sophia@gmail.com', '4'),
+(DEFAULT, 'CUST005', 'Taylor Swift', 'P', 'Cambodia', '1989-02-22', 'taylorswift@gmail.com', '5');
+
+
+INSERT INTO vendor VALUES
+('V001', 'Skintific', 'Jakarta', '08123456789'),
+('V002', 'Base', 'Bandung', '08223456789'),
+('V003', 'Focallure', 'Surabaya', '08323456789'),
+('V004', 'Wardah', 'Medan', '08423456789'),
+('V005', 'Emina', 'Makassar', '08523456789');
+
+INSERT INTO pembelian VALUES
+(DEFAULT, '2024-12-01', 'B001', '10', '7000000', 1, 1),
+(DEFAULT, '2024-12-02', 'B002', '20', '2000000', 2, 2),
+(DEFAULT, '2024-12-03', 'B003', '30', '1500000', 3, 3),
+(DEFAULT, '2024-12-04', 'B004', '15', '4500000', 4, 4),
+(DEFAULT, '2024-12-05', 'B005', '25', '1750000', 5, 5);
+
+INSERT INTO pesanan VALUES
+(DEFAULT, '2024-12-01', 100000, 16),
+(DEFAULT, '2024-12-02', 200000, 17),
+(DEFAULT, '2024-12-03', 150000, 18),
+(DEFAULT, '2024-12-04', 250000, 19),
+(DEFAULT, '2024-12-05', 300000, 20);
+
+INSERT INTO pembayaran VALUES
+(DEFAULT, 'K001-2024', '2024-12-01', 100000, 1, 6),
+(DEFAULT, 'K002-2024', '2024-12-02', 200000, 1, 7),
+(DEFAULT, 'K003-2024', '2024-12-03', 150000, 2, 8),
+(DEFAULT, 'K004-2024', '2024-12-04', 250000, 2, 9),
+(DEFAULT, 'K005-2024', '2024-12-05', 300000, 3, 10);
+
+INSERT INTO pesanan_items VALUES
+(DEFAULT, 25, '7000000', 1, 6),
+(DEFAULT, 38, '100000', 2, 7),
+(DEFAULT, 12, '50000', 3, 8),
+(DEFAULT, 14, '300000', 4, 9),
+(DEFAULT, 53, '70000', 5, 10);
